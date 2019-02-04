@@ -1,0 +1,27 @@
+<br>
+<div class="row">
+  <table class="table">
+    <thead>
+      <th>No</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Birth Year</th>
+      <th>Password</th>
+      <th>Operation</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in personList">
+        <td>{{personList.indexOf(person)+1}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.surname}}</td>
+        <td>{{person.country}}</td>
+        <td>{{person.city}}</td>
+        <td>{{person.birthYear}}</td>
+        <td>{{person.password}}</td>
+        <td><input type="button" name="delete" value="Delete" class="btn btn-danger"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
