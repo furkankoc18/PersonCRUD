@@ -1,4 +1,4 @@
-var app = angular.module('App', ['ngRoute']);
+let app = angular.module('App', ['ngRoute']);
 
 function Person(name, surname, birthYear, country, city, password, isPasive) {
   this.name = name;
@@ -52,13 +52,13 @@ app.controller('AppController', ['$scope', function($scope) {
       'countryID': 2,
       'name': 'Chicago'
     }
-  ]
-  var personList = [];
-  var cityList = $scope.cityList;
+  ];
+  let personList = [];
+  let cityList = $scope.cityList;
   $scope.addPerson = function(person) {
-    var personObj = new Person(person.name, person.surname, person.birthYear, person.country, person.city, person.password, person.isPasive);
+    let personObj = new Person(person.name, person.surname, person.birthYear, person.country, person.city, person.password, person.isPasive);
     personList.push(personObj);
-  }
+  };
   $scope.personList = personList;
 
   $scope.changeCountry = function(countryID) {
