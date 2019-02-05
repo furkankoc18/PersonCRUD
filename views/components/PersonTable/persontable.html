@@ -9,6 +9,7 @@
       <th>City</th>
       <th>Birth Year</th>
       <th>Password</th>
+      <th>Statu</th>
       <th>Operation</th>
     </thead>
     <tbody>
@@ -20,7 +21,11 @@
         <td>{{person.city}}</td>
         <td>{{person.birthYear}}</td>
         <td>{{person.password}}</td>
-        <td><input type="button" name="delete" value="Delete" class="btn btn-danger"></td>
+        <td>{{person.isPasive}}</td>
+        <td>
+          <input type="button" name="delete" value="Delete" class="btn btn-danger" ng-click="removePerson($index)">
+          <input type="button" name="edit" value="Edit" class="btn btn-info">
+        </td>
       </tr>
     </tbody>
   </table>

@@ -29,7 +29,8 @@
           <div class="form-group col-md-4">
             <label>Birth Year</label>
             <select class="form-control" ng-model="newperson.birthYear">
-              <option>...</option>
+              <option value="" disabled selected>Select your BirthYear</option>
+              <option ng-repeat="birth in birthYearList" value="{{birth.birthYear}}">{{birth.birthYear}}</option>
             </select>
           </div>
         </div>
