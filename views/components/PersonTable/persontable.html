@@ -9,22 +9,45 @@
       <th>City</th>
       <th>Birth Year</th>
       <th>Password</th>
-      <th>Statu</th>
       <th>Operation</th>
     </thead>
     <tbody>
       <tr ng-repeat="person in personList">
         <td>{{personList.indexOf(person)+1}}</td>
-        <td>{{person.name.toUpperCase()}}</td>
-        <td>{{person.surname.toUpperCase()}}</td>
-        <td>{{person.country.toUpperCase()}}</td>
-        <td>{{person.city.toUpperCase()}}</td>
-        <td>{{person.birthYear}}</td>
-        <td>{{person.password}}</td>
-        <td>{{person.isPasive.toUpperCase()   }}</td>
         <td>
-          <input type="button" name="delete" value="Delete" class="btn btn-danger" ng-click="removePerson($index)">
-          <input type="button" name="edit" value="Edit" class="btn btn-info">
+            <label ng-if="person.isPasive">{{person.name.toUpperCase()}}</label>
+            <input type="text" name="name" ng-model="person.name" class="form-control" ng-if="!person.isPasive">
+        </td>
+        <td>
+            <label ng-if="person.isPasive">{{person.surname.toUpperCase()}}</label>
+            <input type="text" name="surname" ng-model="person.surname" class="form-control" ng-if="!person.isPasive">
+        </td>
+        <td>
+            <label ng-if="person.isPasive">{{person.country.toUpperCase()}}</label>
+            <select class="form-control" ng-model="person.country" ng-if="!person.isPasive" ng-change="changeCountryEdit(person.country)">
+                <option ng-repeat="country in countryList" value="{{country.name}}">{{country.name}}</option>
+            </select>
+        </td>
+        <td>
+            <label ng-if="person.isPasive">{{person.city.toUpperCase()}}</label>
+            <select class="form-control" ng-model="person.city" ng-if="!person.isPasive">
+                <option ng-repeat="city in cityListEdit" value="{{city.name}}">{{city.name}}</option>
+            </select>
+        </td>
+        <td>
+            <label ng-if="person.isPasive">{{person.birthYear}}</label>
+            <select class="form-control" ng-model="person.birthYear" ng-if="!person.isPasive">
+                <option ng-repeat="birth in birthYearList" value="{{birth.birthYear}}">{{birth.birthYear}}</option>
+            </select>
+        </td>
+        <td>
+            <label ng-if="person.isPasive">{{person.password}}</label>
+            <input type="text" name="password" ng-model="person.password" class="form-control" ng-if="!person.isPasive" style="width: 150px;">
+        </td>
+        <td>
+            <button type="button" name="delete" class="btn btn-danger" ng-click="removePerson($index)"><i class="fa fa-trash-o"></i></button>
+            <button type="button" name="edit" class="btn btn-info" ng-click="editPerson($index)" ng-if="person.isPasive"><i class="fa fa-edit"></i></button>
+            <button type="button" name="edit" class="btn btn-success" ng-click="updatePerson($index)" ng-if="!person.isPasive"><i class="fa fa-check"></i></button>
         </td>
       </tr>
     </tbody>

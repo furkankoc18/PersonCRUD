@@ -84,8 +84,7 @@ app.controller('AppController', ['$scope', '$localStorage', '$sessionStorage', f
     };
 
     $scope.addPerson = function (person) {
-        if (person.isPasive == null)
-            person.isPasive = false;
+        person.isPasive = true;
         let personObj = new Person(person.name, person.surname, person.birthYear, person.country, person.city, person.password, person.isPasive);
         $scope.personList.push(personObj);
         $localStorage.personList = $scope.personList;
@@ -102,5 +101,30 @@ app.controller('AppController', ['$scope', '$localStorage', '$sessionStorage', f
                 $scope.cityList.push(cityList[i]);
             }
         }
+    };
+
+    $scope.changeCountryEdit = function (countryName) {
+
+        $scope.cityListEdit = [];
+        let id;
+        for (let i = 0; i < $scope.countryList.length; i++) {
+            if ($scope.countryList[i].name == countryName) {
+                id = $scope.countryList[i].countryID;
+            }
+        }
+        for (let i = 0; i < cityList.length; i++) {
+            if (cityList[i].countryID == id) {
+                $scope.cityListEdit.push(cityList[i]);
+            }
+        }
+    };
+
+
+    $scope.editPerson = function (personIndex) {
+        $scope.personList[personIndex].isPasive = false;
+    };
+
+    $scope.updatePerson = function (personIndex) {
+        $scope.personList[personIndex].isPasive = true;
     }
 }]);
