@@ -15,13 +15,13 @@
     <tbody>
       <tr ng-repeat="person in personList">
         <td>{{personList.indexOf(person)+1}}</td>
-        <td>{{person.name}}</td>
-        <td>{{person.surname}}</td>
-        <td>{{person.country}}</td>
-        <td>{{person.city}}</td>
+        <td>{{person.name.toUpperCase()}}</td>
+        <td>{{person.surname.toUpperCase()}}</td>
+        <td>{{person.country.toUpperCase()}}</td>
+        <td>{{person.city.toUpperCase()}}</td>
         <td>{{person.birthYear}}</td>
         <td>{{person.password}}</td>
-        <td>{{person.isPasive}}</td>
+        <td>{{person.isPasive.toUpperCase()   }}</td>
         <td>
           <input type="button" name="delete" value="Delete" class="btn btn-danger" ng-click="removePerson($index)">
           <input type="button" name="edit" value="Edit" class="btn btn-info">

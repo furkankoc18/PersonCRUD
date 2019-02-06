@@ -15,10 +15,7 @@ app.config(['$routeProvider', function ($routeProvider) {
         .when('/home', {
             templateUrl: 'views/homepage.html',
             controller: 'AppController'
-        }).when('/user', {
-        templateUrl: 'views/userpage.html',
-        controller: 'AppController'
-    })
+        })
         .otherwise({
             redirectTo: '/'
         })
